@@ -1,0 +1,6 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Restful Booker API Suite - Regression">
+  <test name="Regression">
+    <packages><package name="qa.shipsure.api.tests"/></packages>
+  </test>
+</suite>
