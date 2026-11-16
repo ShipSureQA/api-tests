@@ -23,7 +23,7 @@ jobs:
           java-version: '17'
           cache: maven
       - run: mvn -B test
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: testng-report
@@ -45,7 +45,7 @@ jobs:
           -e postman/restful-booker.postman_environment.json
           -r cli,htmlextra --reporter-htmlextra-export site/index.html
           --reporter-htmlextra-title "Restful Booker API Tests - ShipSure QA"
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: newman-report
