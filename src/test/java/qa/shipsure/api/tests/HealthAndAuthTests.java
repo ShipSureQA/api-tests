@@ -20,7 +20,7 @@ public class HealthAndAuthTests {
                 .then()
                 .statusCode(200)
                 .body("token", not(emptyOrNullString()))
-                .time(lessThan(10000L)) // generous: free host may cold-start;
+                .time(lessThan(10000L)); // generous: free host may cold-start
     }
 
     @DataProvider(name = "badCredentials")
