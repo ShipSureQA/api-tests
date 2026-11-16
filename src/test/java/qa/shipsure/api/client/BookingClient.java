@@ -3,7 +3,6 @@ package qa.shipsure.api.client;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import qa.shipsure.api.models.Booking;
@@ -26,8 +25,10 @@ public final class BookingClient {
 
     private static final RequestSpecification SPEC = new RequestSpecBuilder()
             .setBaseUri(BASE_URL)
-            .setContentType(ContentType.JSON)
-            .setAccept(ContentType.JSON)
+            // Exact header values: restful-booker answers 418 if Accept lists several media
+            // types (which ContentType.JSON does), so set plain application/json explicitly.
+            .setContentType("application/json")
+            .setAccept("application/json")
             .log(LogDetail.URI)
             .build();
 
